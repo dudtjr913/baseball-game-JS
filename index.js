@@ -31,10 +31,13 @@ const createCylinder = (radius, height) => {
 };
 
 const checkParameter = (...args) => {
+  const argValue = args.every((arg) => arg);
   const allArgsTypeNumber = args.every((arg) => typeof arg === 'number');
+  if (!argValue) {
+    return error('인자의 개수가 부족합니다.');
+  }
+
   if (!allArgsTypeNumber) {
     return error('숫자를 입력해주세요.');
   }
 };
-
-createTrapezoid(1, 2, 3);
