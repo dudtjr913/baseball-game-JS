@@ -1,4 +1,18 @@
-const getArea = (polygon, ...args) => {
+const reducer = (arr, callback, initialValue) => {
+  let acc = 0;
+  if (initialValue) {
+    acc = initialValue;
+  }
+  arr.forEach((cur) => {
+    acc = callback(acc, cur, arr);
+  });
+
+  return acc;
+};
+
+console.log(reducer([1, 2, 3, 4, 5], (a, b) => a + b));
+
+/*const getArea = (polygon, ...args) => {
   switch (polygon) {
     case 'circle':
       getCircle(...args);
@@ -72,3 +86,4 @@ const checkParameter = (...args) => {
 };
 
 console.log(getCircle(3, 3));
+*/
